@@ -1,4 +1,5 @@
 {% load static %}
+{% load crypto_filter %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -179,15 +180,15 @@
                       Bitcoin <span class="span">BTC/USD</span>
                     </a>
                   </div>
-
-                  <data class="card-value" value="46168.95">USD 46,168.95</data>
+                  {% with crypto=cryptos|cryptoname:"bitcoin" %}
+                  <data class="card-value">USD {{crypto.price}}</data>
 
                   <div class="card-analytics">
-                    <data class="current-price" value="36641.20">36,641.20</data>
+                      <data class="current-price">{{crypto.history_price}}</data>
 
-                    <div class="badge red">-0.79%</div>
+                      <div class="badge {% if crypto|pricediff >= 0 %}green{% else %}red{% endif %} ">{{crypto|pricediff}}%</div>
                   </div>
-
+                  {% endwith %}
                 </div>
               </li>
 
@@ -202,14 +203,15 @@
                     </a>
                   </div>
 
-                  <data class="card-value" value="3480.04">USD 3,480.04</data>
+                  {% with crypto=cryptos|cryptoname:"ethereum" %}
+                  <data class="card-value">USD {{crypto.price}}</data>
 
                   <div class="card-analytics">
-                    <data class="current-price" value="36641.20">36,641.20</data>
+                      <data class="current-price">{{crypto.history_price}}</data>
 
-                    <div class="badge green">+10.55%</div>
+                      <div class="badge {% if crypto|pricediff >= 0 %}green{% else %}red{% endif %} ">{{crypto|pricediff}}%</div>
                   </div>
-
+                  {% endwith %}
                 </div>
               </li>
 
@@ -224,13 +226,15 @@
                     </a>
                   </div>
 
-                  <data class="card-value" value="1.00">USD 1.00</data>
+                  {% with crypto=cryptos|cryptoname:"tether" %}
+                  <data class="card-value">USD {{crypto.price}}</data>
 
                   <div class="card-analytics">
-                    <data class="current-price" value="36641.20">36,641.20</data>
+                      <data class="current-price">{{crypto.history_price}}</data>
 
-                    <div class="badge red">-0.01%</div>
+                      <div class="badge {% if crypto|pricediff >= 0 %}green{% else %}red{% endif %} ">{{crypto|pricediff}}%</div>
                   </div>
+                  {% endwith %}
 
                 </div>
               </li>
@@ -246,13 +250,15 @@
                     </a>
                   </div>
 
-                  <data class="card-value" value="443.56">USD 443.56</data>
+                  {% with crypto=cryptos|cryptoname:"bnb" %}
+                  <data class="card-value">USD {{crypto.price}}</data>
 
                   <div class="card-analytics">
-                    <data class="current-price" value="36641.20">36,641.20</data>
+                      <data class="current-price">{{crypto.history_price}}</data>
 
-                    <div class="badge red">-1.24%</div>
+                      <div class="badge {% if crypto|pricediff >= 0 %}green{% else %}red{% endif %} ">{{crypto|pricediff}}%</div>
                   </div>
+                  {% endwith %}
 
                 </div>
               </li>
