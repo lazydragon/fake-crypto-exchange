@@ -1,4 +1,16 @@
 # Install
-python -m venv
+python -m venv env
 source env/bin/activate
 python -m pip install -r requirements.txt 
+
+# database
+# python manage.py makemigrations home
+python manage.py migrate
+python manage.py createsuperuser
+# create initial data in the amdin
+
+# statics
+python manage.py collectstatic
+
+# runserver
+python manage.py runserver
